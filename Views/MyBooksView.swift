@@ -2,15 +2,8 @@ import SwiftUI
 
 struct MyBooksView: View {
     
-    enum SheetMode: Identifiable {
-        case compose, filter, settings
-        
-        var id: Self { return self }
-    }
-    
     //MARK: Sheets
     @State private var sheetMode: SheetMode?
-    @State private var book: Book?
     
     //MARK: Filters
     @State private var bookQuery = ""
@@ -65,6 +58,16 @@ struct MyBooksView: View {
         }
         .tint(.label)
     }
+}
+
+extension MyBooksView {
+    
+    enum SheetMode: Identifiable {
+        case compose, filter, settings
+        
+        var id: Self { return self }
+    }
+    
     
     @ViewBuilder
     func composeButton() -> some View {
@@ -72,8 +75,8 @@ struct MyBooksView: View {
             Spacer()
             VStack {
                 Spacer()
-                Button {
-                    self.sheetMode = .compose
+                NavigationLink {
+                    
                 } label: {
                     Image(systemName: "plus")
                         .resizable()

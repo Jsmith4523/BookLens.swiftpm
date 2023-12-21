@@ -8,6 +8,10 @@
 import Foundation
 import SwiftUI
 
+protocol BookPoto: AnyObject {
+    
+}
+
 struct Book: Identifiable {
     
     init(title: String, type: BookType = .book, author: String? = nil, isbn: String? = nil, pages: [Page] = []) {
